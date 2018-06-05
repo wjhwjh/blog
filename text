@@ -1,0 +1,5 @@
+git@github.com:wjhwjh/blog.git  这个项目的密钥
+
+git remote add origin git@github.com:wjhwjh/blog.git   把本地仓库和远程仓库关联起来
+
+git push origin master 把本地仓库的内容推送至gitHub

@@ -1,7 +1,19 @@
 doctype html
+<!--[if IE8]><html class='ie8'><![endif]-->
+<!--[if IE9]><html class='ie9'><![endif]-->
+<!--[if !IE]><!--><html><!--[endif]-->
 html
   head
+    meta(charset = 'UTF-8')
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div
+      h1#tit 欢迎再次回来☺！
+      div.formBox
+        form(action='')
+          input(placeholder='请输入名字', id='name', name='username' autocomplete='off')
+          input(placeholder='密码',id='password', name='password' autocomplete='off')
+          button(type='submit') 提交1
     block content
+</html>

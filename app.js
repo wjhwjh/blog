@@ -5,12 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
+var index = require('./routes/index'); //路由器
 var users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
+// view engine setup 视图设置
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

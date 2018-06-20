@@ -1,0 +1,24 @@
+doctype html
+<!--[if IE8]><html class='ie8'><![endif]-->
+<!--[if IE9]><html class='ie9'><![endif]-->
+<!--[if !IE]><!--><html><!--[endif]-->
+html
+  head
+    meta(charset = 'UTF-8')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/data_md5.js')
+    script(src='/javascripts/index_login.js')
+
+  body
+    div
+      h1#tit Join Us！
+      div.formBox
+        form(action='')
+          input(placeholder='请输入名字', id='registerName', name='registerName' autocomplete='off')
+          input(placeholder='密码',id='registerPassword', name='registerPassword' autocomplete='off')
+          button(type='button', id = 'registerBtn') 注册
+        a(href='/login', class='backLogin') 返回登录
+    block content
+</html>

@@ -20,9 +20,10 @@ var userSchema = { //
 
 var userModel = db.model('userLister',userSchema); //
 
+/*
 var date = new Date();
 var nowTime = date.getFullYear()+"-"+ (date.getMonth()+1)+"-"+ date.getDate()+"-"+ date.getHours()+":"+ date.getMinutes();
-/*//console.log(nowTime);
+//console.log(nowTime);
 
 var huizi = new userModel({
     "userName":"惠子",
@@ -32,14 +33,14 @@ var huizi = new userModel({
 //console.log(one);
 huizi.save();*/
 
-userModel.create({
+/*userModel.create({
     "userName":"惠子",
     "pwd":111,
     "time":nowTime
 }, function (err) {
     if(err)throw err;
     console.log( '数据插入成功' );
-});
+});*/
 
 
 module.exports = userModel;

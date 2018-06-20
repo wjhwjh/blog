@@ -63,3 +63,10 @@ input {
   opacity: 0.9;
   transition: 0.3s;
 }
+.backLogin{
+  color: #fff;
+  text-align: right;
+  display: block;
+  padding: 20px 0;
+  font-size: 16px;
+}

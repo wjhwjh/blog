@@ -8,15 +8,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/data_md5.js')
     script(src='/javascripts/index_login.js')
 
   body
     div
-      h1#tit 欢迎再次回来☺！
+      h1#tit Welcome☺！
       div.formBox
         form(action='')
           input(placeholder='请输入名字', id='name', name='username' autocomplete='off')
           input(placeholder='密码',id='password', name='password' autocomplete='off')
           button(type='button', id = 'loginBtn') 提交
+          a(href='/register', class='backLogin') 注册
     block content
 </html>

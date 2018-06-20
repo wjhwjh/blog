@@ -2,6 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{blog-h node_modules}" />
+    <file url="file://$PROJECT_DIR$/routes/index.js" libraries="{ECMAScript 6, jquery}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

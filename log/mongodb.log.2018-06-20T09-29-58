@@ -1,0 +1,44 @@
+2018-06-20T17:27:45.120+0800 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] MongoDB starting : pid=13300 port=27017 dbpath=F:\web_project\es6\blog-h\mongo_DB_dataBase 64-bit host=USNTSF0RSPV0UXM
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] db version v3.6.5
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] git version: a20ecd3e3a174162052ff99913bc2ca9a839d618
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] modules: none
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] build environment:
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-06-20T17:27:45.391+0800 I CONTROL  [initandlisten] options: { config: "F:\web_project\es6\blog-h\mongo.conf", net: { port: 27017 }, storage: { dbPath: "F:\web_project\es6\blog-h\mongo_DB_dataBase", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "F:\web_project\es6\blog-h\log\mongodb.log", quiet: true } }
+2018-06-20T17:27:45.393+0800 I -        [initandlisten] Detected data files in F:\web_project\es6\blog-h\mongo_DB_dataBase created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-06-20T17:27:45.393+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7648M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-06-20T17:27:45.768+0800 I STORAGE  [initandlisten] WiredTiger message [1529486865:768203][13300:1999909760], txn-recover: Main recovery loop: starting at 5/60416
+2018-06-20T17:27:45.888+0800 I STORAGE  [initandlisten] WiredTiger message [1529486865:888203][13300:1999909760], txn-recover: Recovering log 5 through 6
+2018-06-20T17:27:46.020+0800 I STORAGE  [initandlisten] WiredTiger message [1529486866:20203][13300:1999909760], txn-recover: Recovering log 6 through 6
+2018-06-20T17:27:46.092+0800 I STORAGE  [initandlisten] WiredTiger message [1529486866:92203][13300:1999909760], txn-recover: Set global recovery timestamp: 0
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] 
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] 
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] 
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] 
+2018-06-20T17:27:46.861+0800 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-06-20T17:27:46.862+0800 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-06-20T17:27:46.862+0800 I CONTROL  [initandlisten] 
+2018-06-20T17:27:48.258+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'F:/web_project/es6/blog-h/mongo_DB_dataBase/diagnostic.data'
+2018-06-20T17:27:48.262+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-06-20T17:28:19.951+0800 I CONTROL  [thread2] Ctrl-C signal
+2018-06-20T17:28:19.951+0800 I CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2018-06-20T17:28:19.951+0800 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2018-06-20T17:28:19.951+0800 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2018-06-20T17:28:19.954+0800 I STORAGE  [consoleTerminate] WiredTigerKVEngine shutting down
+2018-06-20T17:28:20.891+0800 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2018-06-20T17:28:20.891+0800 I CONTROL  [consoleTerminate] now exiting
+2018-06-20T17:28:20.891+0800 I CONTROL  [consoleTerminate] shutting down with code:12

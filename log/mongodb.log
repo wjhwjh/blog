@@ -1,0 +1,15 @@
+2018-06-20T17:29:58.505+0800 I CONTROL  [initandlisten] MongoDB starting : pid=13028 port=27017 dbpath=D:\data\db\ 64-bit host=USNTSF0RSPV0UXM
+2018-06-20T17:29:58.505+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] db version v3.6.5
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] git version: a20ecd3e3a174162052ff99913bc2ca9a839d618
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] modules: none
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] build environment:
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] options: { systemLog: { destination: "file", path: "F:\web_project\es6\blog-h\log\mongodb.log" } }
+2018-06-20T17:29:58.506+0800 I STORAGE  [initandlisten] exception in initAndListen: NonExistentPath: Data directory D:\data\db\ not found., terminating
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] now exiting
+2018-06-20T17:29:58.506+0800 I CONTROL  [initandlisten] shutting down with code:100

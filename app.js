@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index'); //路由器
 var users = require('./routes/users');
 
+var session = require('express-session');
+
 var app = express();
 
 // view engine setup 视图设置
@@ -21,6 +23,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// 使用 session 中间件
+app.use(session({ //参数的意义
+  secret :  parseInt(Math.random()*10000).toString(), // 对session id 相关的cookie 进行签名
+  name: 'name',
+  resave : true,
+  saveUninitialized: false, // 是否保存未初始化的会话
+  cookie : {
+    maxAge : 1000 * 60 * 3 // 设置 session 的有效时间，单位毫秒
+  }
+}));
+
+
 
 app.use('/', index);
 app.use('/users', users);

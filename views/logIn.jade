@@ -3,22 +3,31 @@ doctype html
 <!--[if IE9]><html class='ie9'><![endif]-->
 <!--[if !IE]><!--><html><!--[endif]-->
 html
-  head
-    meta(charset = 'UTF-8')
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/javascripts/jquery.min.js')
-    script(src='/javascripts/data_md5.js')
-    script(src='/javascripts/index_login.js')
+    head
+        meta(charset = 'UTF-8')
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='/javascripts/jquery.min.js')
+        script.
+            /*在进入登录页面之前进行判断用户是否登录*/
+             $.post('/isLogin', function(resulte){
+                 console.log(resulte);
+                 if(resulte == 'do'){
+                     alert('您已登录');
+                     window.location.href = '/';
+                 }
+             })
+        script(src='/javascripts/data_md5.js')
+        script(src='/javascripts/index_login.js')
 
-  body
-    div
-      h1#tit Welcome☺！
-      div.formBox
-        form(action='')
-          input(placeholder='请输入名字', id='name', name='username' autocomplete='off')
-          input(placeholder='密码',id='password', name='password' autocomplete='off')
-          button(type='button', id = 'loginBtn') 提交
-          a(href='/register', class='backLogin') 注册
-    block content
+    body
+        div
+            h1#tit Welcome☺！
+            div.formBox
+                form(action='')
+                    input(placeholder='请输入名字', id='name', name='username' autocomplete='off')
+                    input(placeholder='密码',id='password', name='password' autocomplete='off')
+                    button(type='button', id = 'loginBtn') 提交
+                    a(href='/register', class='backLogin') 注册
+        block content
 </html>

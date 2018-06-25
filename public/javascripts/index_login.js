@@ -2,35 +2,36 @@
  * Created by Administrator on 2018/6/11.
  */
  $(window).ready(function () {
-    
-    
      /*登录页面*/
      $('#loginBtn').on('click', function () {
- 
          var userName = $('#name').val();
          var userPwd = $('#password').val();
-         
          var data = {
              user:userName,
              pwd:$.md5(userPwd)
          };
+
+     
+         
          
          //对输入的数据进行后台请求
          $.post('/doLogin',data,function (result) {  //函数的参数backData,是发送成功后，服务器返回的数据
              alert( result );
+             
+             /*
+             * 返回上一个页面,如果是没有注册的用户，则先注册然后登录，这时登录以后返回注册页面？
+             * */
+             if(result == '登录成功'){ //
+                 self.location = document.referrer;
+             }
          })                                                                          
      });
 
-     
-     
-     
      //注册页面
      $('#registerBtn').on('click', function () {
        
          var userName = $('#registerName').val();
          var userPwd = $('#registerPassword').val();
-         
-
 
          //把输入的数据传到服务器
          $.post('/isUser', {reg_user:userName}, function (result) {  //请求该用户是否存在
@@ -53,8 +54,5 @@
              }
          })
      });
-
-
-
 
  });

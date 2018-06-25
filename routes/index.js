@@ -1,5 +1,6 @@
 var express = require('express');
 var userModel = require('../data/loginDataBase');
+var fs = require('fs');
 var router = express.Router();
 
 
@@ -11,7 +12,7 @@ var router = express.Router();
 * res  是做响应的
 * */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: req.session.user });
 });
 
 router.get('/login', function (req, res, next) {
@@ -29,15 +30,29 @@ router.post('/doLogin', function (req, res, next) {
 
     //console.log(userModel.find());{'userName':req.body.user},
     userModel.find({"userName": req.body.user} ,function (err, data) {
-          //if(err)throw err;
-          /* console.log( req.body.user  );
-           console.log( data[0].userName );
-           console.log( data[0].pwd );*/
            //var dataPwd = data[0].pwd; //数据库中的密码是加密的，所以使用的时候还需要解密
-           //console.log( data[0] );
           if( data[0] ){
               if(req.body.pwd == data[0].pwd){
+                  req.session.user = req.body.user; //判断登录状态
                   res.send('登录成功');
+
+                  /*
+                  * 登录成功时，把相关的用户信息添加到日志中
+                  *
+                  * 信息包括 用户名和时间
+                  * */
+                  var date = new Date();
+                  var loginUser ='时间：'+ date.getFullYear()+"-"+ (date.getMonth()+1)+"-"+ date.getDate()+"-"+ date.getHours()+":"+ date.getMinutes() +'  用户名：'+ req.body.user;
+
+                  fs.writeFile('./log/dologin.log', loginUser, {flag:"a"}, function (err) { //flag默认值'w'，会清空文件
+                      if(err){
+                          console.log('登录失败');
+                      }else {
+                          console.log('登录成功');
+                      }
+                  });
+
+
               }else {
                   if(err) throw err;
                   res.send('密码错误');
@@ -47,6 +62,18 @@ router.post('/doLogin', function (req, res, next) {
           }
     });
 });
+
+//判断用户是否已经登录
+router.post('/isLogin', function (req,res) {
+    console.log( req.session.user );
+    if(req.session.user){
+        res.send('do');
+    }else {
+        res.send('not');
+    }
+});
+
+
 
 
 //注册,判断是否有该用户
@@ -69,8 +96,23 @@ router.post('/doRegister', function (req, res, next) {
     //console.log( req.body );
     userModel.create(req.body, function (err, data) { //注册的用户写入数据库
         //console.log( data );
-
         if(err)throw err;
+
+         /*
+         * 注册时的的日志
+         *
+         * 记录注册用户的姓名和注册日期
+         * */
+        var date = new Date();
+        var registerUser ='时间：'+ date.getFullYear()+"-"+ (date.getMonth()+1)+"-"+ date.getDate()+"-"+ date.getHours()+":"+ date.getMinutes() +'  用户名：'+ req.body.userName;
+        fs.writeFile('./log/register.log', registerUser, {flag:"a"}, function (err) {
+            if(err){
+                console.log('注册失败');
+            }else {
+                console.log('注册成功');
+            }
+        });
+
         res.send( '注册成功');
     });
     

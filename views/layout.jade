@@ -8,7 +8,12 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/index.css')
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/index_login.js')
   body
-    a(href='/login', class='login') 登录
+    a(id='onLoginBtn',href='/login', class='login') 登录
+    a(id='unLoginBtn',href='/login', class='login') 注销
+
+    h1= title
     block content
 </html>

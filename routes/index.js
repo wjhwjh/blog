@@ -1,7 +1,10 @@
 var express = require('express');
 var userModel = require('../data/loginDataBase');
+var articleModel = require('../data/articleDatabase');
 var fs = require('fs');
+
 var router = express.Router();
+
 
 
 //var app = express();  // app和router区别 都可以用来调用路由的，区别
@@ -20,9 +23,21 @@ router.get('/', function (req, res, next) {
         loginFlag = '登录';
         req.session.user = '';
     }*/
+    /*
+    * 1. 获取数据库文章数据
+    * 2. 渲染页面
+    * 3. 对上传文章进行排序articleModel.sort().exec()
+    *    -1按倒序进行排序，后发布的在数据库中最下边，所以需要倒序排列
+    * */
 
-
-    res.render('index', {title: req.session.user});
+    articleModel.find({}).sort({'_id':-1}).exec(function (err, data) {
+        if(err) throw err;
+        console.log( data );
+        res.render('index',{
+            title:req.session.user,
+            data:data
+        });
+    });
 });
 
 router.get('/login', function (req, res, next) {

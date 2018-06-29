@@ -9,7 +9,7 @@ var db = mongoose.connection;
 db.on('error',console.error.bind(console,'连接错误:'));
 db.once('open',function(){
     //一次打开记录
-    console.log( "链接成功" );
+    console.log( "**用户信息链接成功**" );
 });
 
 var userSchema = { //

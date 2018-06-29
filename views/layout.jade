@@ -6,14 +6,41 @@ html
   head
     meta(charset = 'UTF-8')
     title= title
+    link(rel='stylesheet', href='/stylesheets/base.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/index.css')
     script(src='/javascripts/jquery.min.js')
     script(src='/javascripts/index_login.js')
+    script.
+      $(window).ready(function () { //登录按钮和注销按钮的显示切换纯js，写在了前台
+          var userNameVal = $('.userName').text();
+          if(userNameVal){
+            $('#onLoginBtn').hide();
+            $('#unLoginBtn').show();
+          }else{
+            $('#onLoginBtn').show();
+            $('#unLoginBtn').hide();
+          }
+      })
   body
-    a(id='onLoginBtn',href='/login', class='login') 登录
-    a(id='unLoginBtn',href='/login', class='login') 注销
-
-    h1= title
+    div#header
+      div.w-container.clearFix
+        h2.user_name
+          span.userName=title
+          span.del 欢迎回来！
+        a(id='onLoginBtn',href='/login', class='login') 登录
+        a(id='unLoginBtn',href='/login', class='login') 注销
+    div.w-container
+      each val, index in data
+        li
+          div.left
+            img(src=val.images)
+          div.right
+            h2.pTit=val.title
+            div.des=val.describe
+            div.del
+              span.author=val.author
+              span.num=val.getNum
+              span.time=val.relTimes
     block content
 </html>

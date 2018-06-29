@@ -1,0 +1,10 @@
+.w-container{
+    width: 1200px;
+    max-width: 1200px;
+    margin: auto;
+}
+.clearFix:after, .clearFix:before{
+    content: '';
+    display: block;
+    clear: both;
+}

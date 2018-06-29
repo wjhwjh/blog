@@ -9,14 +9,16 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
         script(src='/javascripts/jquery.min.js')
         script.
-            /*在进入登录页面之前进行判断用户是否登录*/
-             $.post('/isLogin', function(resulte){
-                 //console.log(resulte);
-                 if(resulte == 'do'){
-                     alert('您已登录');
-                     window.location.href = '/';
-                 }
-             })
+            $(window).ready(function () {
+                /*在进入登录页面之前进行判断用户是否登录*/
+                $.post('/isLogin', function (resulte) {
+                    //console.log(resulte);
+                    if (resulte == 'do') {
+                        alert('您已登录');
+                        window.location.href = '/';
+                    }
+                })
+            })
         script(src='/javascripts/data_md5.js')
         script(src='/javascripts/index_login.js')
 

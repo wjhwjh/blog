@@ -1,9 +1,8 @@
 doctype html
-<!--[if IE8]><html class='ie8'><![endif]-->
-<!--[if IE9]><html class='ie9'><![endif]-->
-<!--[if !IE]><!--><html><!--[endif]-->
 html
     head
+        //IE兼容问题
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(charset = 'UTF-8')
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
@@ -31,5 +30,4 @@ html
                     input(placeholder='密码',id='password', name='password' autocomplete='off')
                     button(type='button', id = 'loginBtn') 提交
                     a(href='/register', class='backLogin') 注册
-        block content
-</html>
+block content

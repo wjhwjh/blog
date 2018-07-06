@@ -1,10 +1,8 @@
 doctype html
-<!--[if IE8]><html class='ie8'><![endif]-->
-<!--[if IE9]><html class='ie9'><![endif]-->
-<!--[if !IE]><!--><html><!--[endif]-->
 html
   head
     meta(charset = 'UTF-8')
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
     title= title
     link(rel='stylesheet', href='/stylesheets/base.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -43,4 +41,3 @@ html
               span.num=val.getNum
               span.time=val.relTimes
     block content
-</html>

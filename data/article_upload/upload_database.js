@@ -37,11 +37,13 @@ var articleModel = articleDB.model('articleList',articleSchema);
 * 读取数据并且添加到数据库中
 * */
 file_content.readFiles(function (data) {//回调函数形参
+    //console.log( data );
+
     var date = new Date();
     var nowTime = date.getFullYear()+"-"+ (date.getMonth()+1)+"-"+ date.getDate()+"-"+ date.getHours()+":"+ date.getMinutes();
 
     var artJson = {
-        title:'node.js 博客系统（1）',
+        title:'node.js 博客系统（3）',
         relTimes:nowTime,
         author:'惠子',
         describe:'简单的博客系统',

@@ -7,10 +7,14 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index'); //路由器
 var users = require('./routes/users');
+var other = require('./routes/other');
 
 var session = require('express-session');
 
 var app = express();
+
+
+
 
 // view engine setup 视图设置
 app.set('views', path.join(__dirname, 'views'));
@@ -57,5 +61,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+//app.use('/63342',ajax);
+
 
 module.exports = app;

@@ -6,7 +6,7 @@ var fs = require('fs');
 module.exports.readFiles = function (callback) { //回调函数作为参数
     fs.readFile('./article.text','utf-8', function (err,data) {
         if(err)throw err;
-        //console.log(data);
+       //console.log(data);
         callback(data); //回调函数的实参
     });
 };

@@ -1,34 +1,136 @@
-.login{
-    width:80px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    display: block;
-    border: 1px solid #fff;
-    color: #fff;
-    font-size: 16px;
-    margin: 20px;
-}
 .displayNone{
     display: none;
 }
-#header{
-    width: 100%;
-    border-bottom: 1px solid #fff;
+/*首页列表*/
+.newList{}
+.newList li{}
+.newList li a{}
+.newList li .left{}
+.newList li .right{}
+.newList li .right {}
+
+/*首页内容*/
+#indexCont{
+    padding-top: 80px;
 }
-#header a{
-    display: inline-block;
+/*左边*/
+#indexCont .contLeft{
+    width: 800px;
+    float: left;
+}
+
+#indexCont .newList{}
+#indexCont .newList li{
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+#indexCont .newList li a{}
+#indexCont .newList li h3{
+    font-size:26px;
+    color: #333;
+    font-weight: normal;
+}
+#indexCont .newList li .del{
+    font-size: 12px;
+    color: #e67e22;
+    margin-top: 10px;
+}
+#indexCont .newList li .del span{
+    padding-right: 30px;
+}
+#indexCont .newList li .des{
+    font-size: 14px;
+    color: #444;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+#indexCont .newList li:hover{
+    background: #fefefe;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+
+/*右边*/
+#indexCont .contRight{
+    width: 350px;
     float: right;
 }
-.user_name{
-    float: left;
-    display: inline-block;
-    font-size: 20px;
-    color: #fff;
-    padding-top: 20px;
+#indexCont .rightBox{
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
 }
-.user_name span.del{
-    font-weight: normal;
+#indexCont .rightBox .tit{
+    width: 100%;
     font-size: 18px;
-    padding-left: 10px;
+    color: #666;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    margin-bottom: 15px;
+}
+#indexCont .rightBox .tit:after{
+    content: '';
+    display: block;
+    clear: both;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: #e67e22;
+}
+#indexCont .rightBox .msg{
+    color: #666;
+    font-size: 14px;
+    margin-bottom:15px;
+}
+#indexCont .rightBox .msg a{
+    color: #666;
+}
+#indexCont .rightBox .wd{
+    display: block;
+    color:#e67e22;
+    font-size: 14px;
+}
+#indexCont .rightBox .tag{}
+#indexCont .rightBox .tag a{
+    color: #999;
+    font-size: 12px;
+    display: inline-block;
+    padding: 5px 10px;
+}
+#indexCont .rightBox .tag a:hover{
+    color:#e67e22;
+}
+#indexCont .rightBox .hot{}
+#indexCont .rightBox .hot li{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+#indexCont .rightBox .hot li a{
+    color: #666;
+    font-size: 14px;
+    transition: 0.3s;
+    display: block;
+}
+#indexCont .rightBox .hot li a:hover{
+    color:#e67e22;
+    font-size: 16px;
+    transition: 0.3s;
+}
+/*footer*/
+.footer{
+    background: #202020;
+    text-align: center;
+    color: #ebebeb;
+    font-size: 14px;
+    padding: 30px 0;
 }

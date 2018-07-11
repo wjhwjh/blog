@@ -1,3 +1,33 @@
+body {
+    font: 16px 'Microsoft YaHei',Verdana, Arial, Helvetica, sans-serif;
+    background: #ebebeb;
+    color: #fff;
+}
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    list-style: none;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust:none
+}
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none !important;
+}
+
+a,
+button,
+input {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+/*公共样式*/
 .w-container{
     width: 1200px;
     max-width: 1200px;
@@ -7,4 +37,55 @@
     content: '';
     display: block;
     clear: both;
+}
+
+/*头部header*/
+.header{
+    background: url("../images/headBg.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height:150px;
+}
+.header .left{
+    float: left;
+    width: 1000px;
+    padding: 40px;
+}
+.header .left h2{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+.header .left p{
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.header .login{
+    display: inline-block;
+    float: right;
+    color: #fff;
+    padding-top: 90px;
+    font-size: 20px;
+    font-weight: normal;
+}
+.nav{
+    width: 100%;
+    background: #fff;
+    height:60px;
+    border-bottom: 2px solid #dddddd;
+    text-align: center;
+}
+.nav a{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    margin:0 30px -2rem 30px;
+    font-size: 16px;
+    color: #222;
+    padding: 0 20px;
+    transition: 0.2s;
+    border-bottom: 2px solid #ddd;
+}
+.nav a:hover{
+    border-bottom: 2px solid #e7832b;
+    transition: 0.2s;
 }

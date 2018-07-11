@@ -5,34 +5,12 @@ var fs = require('fs');
 
 var router = express.Router();
 
-
-
 //var app = express();  // app和router区别 都可以用来调用路由的，区别
 
-
-/* GET home page. */
-/*req  是用来请求数据的
- * res  是做响应的
- * */
-//var loginFlag = '';
 router.get('/', function (req, res, next) {
-/*
-    if(req.session.user){
-        loginFlag = '已登录';
-    }else {
-        loginFlag = '登录';
-        req.session.user = '';
-    }*/
-    /*
-    * 1. 获取数据库文章数据
-    * 2. 渲染页面
-    * 3. 对上传文章进行排序articleModel.sort().exec()
-    *    -1按倒序进行排序，后发布的在数据库中最下边，所以需要倒序排列
-    * */
-
     articleModel.find({}).sort({'_id':-1}).exec(function (err, data) {
         if(err) throw err;
-        console.log( data );
+        //console.log( data );
         res.render('index',{
             title:req.session.user,
             data:data

@@ -4,6 +4,22 @@ block content
     div#indexCont.w-container.clearFix
         div.contLeft
             ul.newList.clearFix
+                each value, index in data
+                    li
+                        a(href='/article?_id='+ value._id)
+                            h3=value.title
+                            div.del
+                                | 作者：
+                                span=value.author
+                                | 时间：
+                                span=value.relTimes
+                                | 浏览量：
+                                span=value.getNum
+                            p.des
+                                | 导读：
+                                span=value.describe
+
+            ul.newList.clearFix
                 li
                     a(href='#')
                         h3 再谈Vue2组件库开发

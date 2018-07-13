@@ -10,7 +10,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     articleModel.find({}).sort({'_id':-1}).exec(function (err, data) {
         if(err) throw err;
-        //console.log( data );
+         //console.log( data );
         res.render('index',{
             title:req.session.user,
             data:data
@@ -24,14 +24,21 @@ router.get('/login', function (req, res, next) {
 router.get('/register', function (req, res, next) {
     res.render('register');
 });
+router.get('/article', function (req, res, next) {
+   // res.end('abs');//
+    res.render('article');
+    articleModel.findById(req.query,function (err,data) {
+        if(err)throw err;
+        console.log(data);
+    });
+});
+
 
 
 //执行登录
 router.post('/doLogin', function (req, res, next) {
     // console.log( req.body );
     // 检查用户名，密码等
-
-
     userModel.find({"userName": req.body.user}, function (err, data) {
         //var dataPwd = data[0].pwd; //数据库中的密码是加密的，所以使用的时候还需要解密
         if (data[0]) {

@@ -5,12 +5,14 @@ var fs = require('fs');
 
 var router = express.Router();
 
-//var app = express();  // app和router区别 都可以用来调用路由的，区别
-
+//var app = express();  // app和router区别 都可以用来调用路由的，区别).sort({'_id':-1}).exec(
+//console.log(articleModel);
+/*首页*/
 router.get('/', function (req, res, next) {
-    articleModel.find({}).sort({'_id':-1}).exec(function (err, data) {
+
+    articleModel.find(function (err, data) {
         if(err) throw err;
-         //console.log( data );
+        //console.log(data);
         res.render('index',{
             title:req.session.user,
             data:data
@@ -18,19 +20,35 @@ router.get('/', function (req, res, next) {
     });
 });
 
+/*登录页面*/
 router.get('/login', function (req, res, next) {
     res.render('login');
 });
+
+/*注册页面*/
 router.get('/register', function (req, res, next) {
     res.render('register');
 });
+
+/*文章页面 http://192.168.230.102:3000/article?_id=5b33395ef2627c20fc45e851*/
 router.get('/article', function (req, res, next) {
-   // res.end('abs');//
-    res.render('article');
-    articleModel.findById(req.query,function (err,data) {
+    //console.log(req.query);
+    var _id = req.query;
+    articleModel.findById(_id, function (err,articleData) {
         if(err)throw err;
-        console.log(data);
+         //console.log(articleData.getNum );
+         var currentNum = articleData.getNum + 1;
+        // console.log(currentNum);
+        articleModel.update({ "_id": _id }, { $set: { "getNum": currentNum }}, function (err,data) {
+            if(err)throw err;
+            console.log(data.getNum);
+            console.log(data);
+            res.render('article',{
+                articleData:articleData
+            });
+        });
     });
+
 });
 
 

@@ -23,7 +23,7 @@ var articleSchema = new article_mongoose.Schema({
     relTimes:String,    //时间
     author:String,      //作者
     describe:String,    //简述
-    getNum:String,      //访问量
+    getNum:Number,      //访问量
     content:String,     //内容
     images:String       //图片
 });

@@ -1,3 +1,41 @@
 //Created by Administrator on 2018/7/13.
 extends layout
 block content
+    div#indexCont.w-container.clearFix
+
+        div.contLeft.delContLeft
+            h2.articleTit=articleData.title
+            div.articleDel
+                | 作者：
+                span=articleData.author
+                | 时间：
+                span=articleData.relTimes
+                | 浏览量：
+                span=articleData.getNum
+            div.articleCont!=articleData.content
+
+        div.contRight
+            div.rightBox
+                p.tit 社区
+                p.msg QQ号：
+                    a(href='#') 1468017149
+                a(href='#' class='wd') 问答社区
+            div.rightBox
+                p.tit 标签云
+                div.tag.
+                    <a href='#'>WEB前端</a><a href='#'>HTML5</a><a href='#'>VUE.JS</a><a href='#'>WEB前端</a><a href='#'>HTML5</a><a href='#'>VUE.JS</a>
+            div.rightBox
+                p.tit 排行榜
+                ul.hot
+                    li
+                        a(href='#') Node.js v4 LTS 成为 Ghost 推荐版本
+                            span (50)
+                    li
+                        a(href='#') Node.js v4 LTS 成为 Ghost 推荐版本
+                            span (50)
+                    li
+                        a(href='#') Node.js v4 LTS 成为 Ghost 推荐版本
+                            span (50)
+    div.footer.
+        Copyright © Ghost中文网 | 京ICP备11008151号 | 京公网安备11010802014853
+block content

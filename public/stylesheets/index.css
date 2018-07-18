@@ -134,3 +134,36 @@
     font-size: 14px;
     padding: 30px 0;
 }
+/*详情页面*/
+.delContLeft{
+    background: #fff;
+    min-height: 500px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+.delContLeft .articleTit{
+    font-size: 30px;
+    text-align: center;
+    color: #666;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+.delContLeft .articleDel{
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+.delContLeft .articleDel span{
+    display: inline-block;
+    padding: 0 10px;
+}
+.delContLeft .articleCont{
+    color: #666;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-top: 20px;
+    text-align: justify;
+}
+.delContLeft .articleCont h2{
+    font-size: 18px;
+}

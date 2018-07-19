@@ -2,6 +2,7 @@ var express = require('express');
 var userModel = require('../data/loginDataBase');
 var articleModel = require('../data/articleDatabase');
 var fs = require('fs');
+var async = require('async');
 
 var router = express.Router();
 
@@ -9,8 +10,7 @@ var router = express.Router();
 //console.log(articleModel);
 /*首页*/
 router.get('/', function (req, res, next) {
-
-    articleModel.find(function (err, data) {
+    articleModel.find().sort({'_id':-1}).exec(function (err, data) {
         if(err) throw err;
         //console.log(data);
         res.render('index',{
@@ -30,25 +30,91 @@ router.get('/register', function (req, res, next) {
     res.render('register');
 });
 
-/*文章页面 http://192.168.230.102:3000/article?_id=5b33395ef2627c20fc45e851*/
-router.get('/article', function (req, res, next) {
+/*文章页面 使用回调*/
+/*router.get('/article', function (req, res, next) {
     //console.log(req.query);
     var _id = req.query;
-    articleModel.findById(_id, function (err,articleData) {
+    articleModel.findById(_id, function (err,articleData) { //根据id查找对应的数据
         if(err)throw err;
-         //console.log(articleData.getNum );
-         var currentNum = articleData.getNum + 1;
-        // console.log(currentNum);
-        articleModel.update({ "_id": _id }, { $set: { "getNum": currentNum }}, function (err,data) {
+         //console.log(articleData);
+        var currentNum = articleData.getNum + 1;
+
+        //浏览量增加后更新数据库的数据
+        articleModel.update({ "_id": _id }, { $set: { "getNum": currentNum }}, function (err) {
             if(err)throw err;
-            console.log(data.getNum);
-            console.log(data);
+
+            //把更新后的数据进行排序，并获取标题和访问量
+            articleModel.find().sort({"getNum": -1}).exec(function (err, data) {
+                if(err) throw err;
+
+                //console.log(data);
+                var dataArr = [];//定义一个数组
+                data.forEach(function (val) {
+                    //console.log(val);
+                    var obj = {
+                        id:     val._id,
+                        title:  val.title,
+                        getNum: val.getNum
+                    };
+                    dataArr.push(obj);
+                });
+
+                // console.log( dataArr );
+                
+                res.render('article',{
+                    columnData:dataArr,
+                    articleData:articleData
+                });
+
+            });//排序
+        });//更新
+    });/!*查找*!/
+
+});*/
+
+/*文章页面利用ansyc*/
+router.get('/article', function (req, res, nextBack) {
+    //console.log(req.query);
+    var _id = req.query;
+    async.waterfall([
+        function (nextBack) {
+            articleModel.findById(_id, function (err,articleData) { //根据id查找对应的数据
+                if(err)throw err;
+                articleData.getNum++;
+                //console.log( articleData );
+                nextBack(null, articleData);
+            });
+
+        },
+        function (articleData,nextBack) {
+            articleModel.update({ "_id": _id }, { $set: { "getNum": articleData.getNum }}, function (err,data) {
+                if(err)throw err;
+                //console.log(data);
+                nextBack(err, articleData);
+            });
+        }
+    ],function (err, articleData) {
+        if(err) throw err;
+        articleModel.find().sort({"getNum": -1}).exec(function (err, data) {
+            if(err) throw err;
+            var dataArr = [];//定义一个数组
+            data.forEach(function (val) {
+                //console.log(val);
+                var obj = {
+                    id:     val._id,
+                    title:  val.title,
+                    getNum: val.getNum
+                };
+                dataArr.push(obj);
+            });
+
             res.render('article',{
+                columnData:dataArr,
                 articleData:articleData
             });
-        });
-    });
 
+        });//排序
+    });
 });
 
 
@@ -79,8 +145,6 @@ router.post('/doLogin', function (req, res, next) {
                     }
                 });
                 //渲染首页的登录按钮
-
-
             } else {
                 if (err) throw err;
                 res.send('密码错误');

@@ -27,6 +27,13 @@ block content
             div.rightBox
                 p.tit 排行榜
                 ul.hot
+                    each item in columnData
+                        li
+                            a(href='#')=item.title
+                                | (
+                                span=item.getNum
+                                | 次)
+                //-ul.hot
                     li
                         a(href='#') Node.js v4 LTS 成为 Ghost 推荐版本
                             span (50)

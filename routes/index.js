@@ -1,6 +1,7 @@
 var express = require('express');
 var userModel = require('../data/loginDataBase');
 var articleModel = require('../data/articleDatabase');
+var commentModel = require('../data/commentDatabase');
 var fs = require('fs');
 var async = require('async');
 
@@ -12,7 +13,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     articleModel.find().sort({'_id':-1}).exec(function (err, data) {
         if(err) throw err;
-        //console.log(data);
+       console.log(data);
         res.render('index',{
             title:req.session.user,
             data:data
@@ -78,7 +79,7 @@ router.get('/article', function (req, res, nextBack) {
     var _id = req.query;
     async.waterfall([
         function (nextBack) {
-            articleModel.findById(_id, function (err,articleData) { //根据id查找对应的数据
+            articleModel.findById(_id, function (err, articleData){ //根据id查找对应的数据
                 if(err)throw err;
                 articleData.getNum++;
                 //console.log( articleData );
@@ -109,6 +110,7 @@ router.get('/article', function (req, res, nextBack) {
             });
 
             res.render('article',{
+                title:req.session.user,
                 columnData:dataArr,
                 articleData:articleData
             });
@@ -116,6 +118,7 @@ router.get('/article', function (req, res, nextBack) {
         });//排序
     });
 });
+
 
 
 
@@ -156,8 +159,8 @@ router.post('/doLogin', function (req, res, next) {
 });
 
 //判断用户是否已经登录
-router.post('/isLogin', function (req, res) {
-    console.log(req.session.user);
+router.post('/isLogin', function (req, res, next) {
+    //console.log(req.session.user);
     if (req.session.user) {
         res.send('do');
     } else {
@@ -207,6 +210,20 @@ router.post('/doRegister', function (req, res, next) {
     });
 
 });
+
+
+router.post('/articleComment', function (req, res, next) {
+    //console.log(req.body);
+    var commentData = req.body;
+    commentData.commemtUser = req.session.user;
+    console.log(commentData);
+    commentModel.creat(commentData, function (err) {
+        if(err) throw err;
+        console.log('评论写入成功');
+    })
+});
+
+
 
 
 module.exports = router;

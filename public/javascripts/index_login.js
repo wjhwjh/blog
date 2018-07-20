@@ -39,7 +39,7 @@ $(window).ready(function () {
                 alert('该用户已经存在');
             } else { //如果用户不存在则写入数据库
                 var date = new Date();
-                var createTime = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "" + date.getHours() + ":" + date.getMinutes();
+                var createTime = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes();
 
                 //把用户注册信息发送到后台，也就是继续进行请求
                 //在向后台传输的过程中就为密码加密
@@ -49,6 +49,8 @@ $(window).ready(function () {
                     "time": createTime
                 }, function (result) { //result是服务器响应值
                     alert(result);
+                    history.go(-1);
+                    location.reload();
                     self.location.href = '/login'; //注册成功跳转到登录页面
                 });
             }

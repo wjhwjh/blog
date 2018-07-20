@@ -2,18 +2,53 @@
 extends layout
 block content
     div#indexCont.w-container.clearFix
-
+        //-左边
         div.contLeft.delContLeft
-            h2.articleTit=articleData.title
-            div.articleDel
-                | 作者：
-                span=articleData.author
-                | 时间：
-                span=articleData.relTimes
-                | 浏览量：
-                span=articleData.getNum
-            div.articleCont!=articleData.content
+            //-文章内容
+            div.articleBox
+                h2.articleTit=articleData.title
+                div.articleDel
+                    | 作者：
+                    span=articleData.author
+                    | 时间：
+                    span=articleData.relTimes
+                    | 浏览量：
+                    span=articleData.getNum
+                div.articleCont!=articleData.content
+            //-评论部分
+            div.commentBox
+                p(class='commentTip').
+                    只有<a href='/login' target="_black" id='commentLogin'>登录</a>以后才能发表评论哦~~没有账号请先<a href='/register' target="_black" id='commentReg'>注册</a>！
+                h2 评论列表
+                ul.commentUl
+                    li
+                        div.commentMsg.clearFix
+                            |#
+                            span.commentTime 2018-07-20 09:20 |
+                            span.commentUser 技术狂魔
+                            p.commentListRingt
+                                span.commentAdd 回复
+                                span.commentDelete 删除
+                        p.commentCont 文章写的很好，很实用
+                    li
+                        div.commentMsg.clearFix
+                            | #
+                            span.commentTime 2018-07-20 09:20 |
+                            span.commentUser 技术狂魔
+                            p.commentListRingt
+                                span.commentAdd 回复
+                                span.commentDelete 删除
+                        p.commentCont 文章写的很好，很实用
 
+                h2 发表评论
+                    div
+                        form.commentForm
+                            label 昵称: &nbsp;
+                                input(type='text', value='技术小白', class='commentName' disabled='false')
+                            div.clearFix.commentMain
+                                textarea(class='commentValue') 评论内容
+                                button(type='button',class='sbtBtn') 提交
+        //-右边
         div.contRight
             div.rightBox
                 p.tit 社区
@@ -23,7 +58,7 @@ block content
             div.rightBox
                 p.tit 标签云
                 div.tag.
-                    <a href='#'>WEB前端</a><a href='#'>HTML5</a><a href='#'>VUE.JS</a><a href='#'>WEB前端</a><a href='#'>HTML5</a><a href='#'>VUE.JS</a>
+                    <a href='#'>WEB前端</a><a href='' target="_black">HTML5</a><a href='#'>VUE.JS</a><a href='' target="_black">WEB前端</a><a href='#'>HTML5</a><a href='#'>VUE.JS</a>
             div.rightBox
                 p.tit 排行榜
                 ul.hot
@@ -45,4 +80,5 @@ block content
                             span (50)
     div.footer.
         Copyright © Ghost中文网 | 京ICP备11008151号 | 京公网安备11010802014853
+    script(src='/javascripts/ariticle.js')
 block content

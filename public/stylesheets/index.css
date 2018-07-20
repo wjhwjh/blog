@@ -134,10 +134,13 @@
     font-size: 14px;
     padding: 30px 0;
 }
-/*详情页面*/
+/*文章详情页面*/
 .delContLeft{
-    background: #fff;
     min-height: 500px;
+
+}
+.delContLeft .articleBox{
+    background: #fff;
     padding: 40px;
     margin-bottom: 40px;
 }
@@ -166,4 +169,84 @@
 }
 .delContLeft .articleCont h2{
     font-size: 18px;
+}
+/*评论部分*/
+.commentBox{
+    background: #fff;
+    padding: 30px 60px;
+    margin: 30px 0;
+}
+.commentBox .commentTip{
+    font-size: 14px;
+    color: #222;
+}
+.commentBox .commentTip a{
+    color: #e8883b;
+    font-weight: bold;
+}
+.commentBox h2{
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.commentBox .commentUl{}
+.commentBox .commentUl li{
+    margin: 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.commentBox .commentUl li .commentMsg{
+    font-size: 14px;
+    color: #888;
+    padding: 20px 0;
+}
+.commentUl li .commentMsg .commentListRingt{
+    float: right;
+}
+.commentUl li .commentMsg .commentListRingt span{
+    font-size: 12px;
+    color: #999;
+    cursor: pointer;
+    padding-left: 15px;
+}
+.commentBox .commentUl li .commentCont{
+    font-size: 14px;
+    color: #888;
+}
+.commentForm{}
+.commentForm .commentMain{
+    margin-top: 20px;
+}
+.commentForm label{
+    font-size: 14px;
+    color: #222;
+    font-weight: normal;
+    margin-top: 20px;
+    display: block;
+}
+.commentForm label .commentName{
+
+}
+.commentForm .commentValue{
+    float: left;
+    height: 60px;
+    width: 80%;
+    border:1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+    padding: 10px 20px;
+    font-family: 'Micrsoft YaHei';
+}
+.commentForm .sbtBtn{
+    float: right;
+    width: 80px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #e67e22;
+    font-size: 16px;
+    background: #fafafa;
+    cursor: pointer;
 }
